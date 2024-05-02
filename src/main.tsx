@@ -14,7 +14,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import googleOAuth2Client from '../googleOAuth2Client.json';
 
 /** @Configuration */
-import customConfig from './util/custom.config.tsx';
+import customConfig from './util/custom.config.ts';
 customConfig();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
