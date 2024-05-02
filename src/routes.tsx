@@ -1,31 +1,18 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Route from './util/Route';
+import RootLayout from './layouts/RootLayout';
+import Counter from './components/Counter';
 
-const publicRoutes = [
-  {
-    path: '/',
-    Component: () => <div>Home</div>,
-  },
-  {
-    path: '/login',
-    Component: () => <div>Login</div>,
-  },
+/** TODO: custom text/json route parser */
+const routes = [
+  Route(['root', ''], <RootLayout />, {
+    0: Route(['root-root', ''], <div>Landing</div>),
+    1: Route('dashboard', <div>Dashboard</div>, {}),
+    2: Route('test', <Counter />),
+  }),
+  Route('auth', <div>Auth</div>),
+  Route(['not-defined', '*'], <div>404</div>),
 ];
 
-const privateRoutes = [
-  {
-    path: '/',
-    Component: () => <div>Home</div>,
-  },
-  {
-    path: '/dashboard',
-    Component: () => <div>Dashboard</div>,
-  },
-];
-
-export function PublicRoutesProvider() {
-  return <RouterProvider router={createBrowserRouter(publicRoutes)} />;
-}
-
-export function PrivateRoutesProvider() {
-  return <RouterProvider router={createBrowserRouter(privateRoutes)} />;
-}
+const Routes = () => <RouterProvider router={createBrowserRouter(routes)} />;
+export default Routes;
