@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 html {
+  font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
-  background-color: #111827; /* bg-gray-900 */
-  color: #4a5568;
+  /* background-color: #111827; /* bg-gray-900 */
+  color: #5f6368;
 }
