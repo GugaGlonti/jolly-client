@@ -1,12 +1,8 @@
 import useRedux from '../hooks/useRedux';
-import { authSlice } from '../store/auth/authSlice';
-import { counterSlice } from '../store/counter/counterSlice';
-
-import { decrement, incrementAsync, incrementByAmount } from '../store/counter/counterSlice';
+import { counterSlice, decrement, incrementAsync, incrementByAmount } from '../store/counter/counterSlice';
 
 export default function Counter() {
   const { count, dispatch } = useRedux(counterSlice);
-  const { isAuthenticated } = useRedux(authSlice);
 
   function handleIncrement() {
     dispatch({ type: 'counter/increment' });
