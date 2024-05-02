@@ -4,7 +4,7 @@ export default function runConfig() {
   const cl = console.log;
 
   console.log = function (...args: Parameters<typeof console.log>) {
-    cl('Log:', ...args, new Date().toLocaleTimeString());
+    cl('Logger:', ...args, new Date().toLocaleTimeString());
   };
 
   console.clear = function () {
