@@ -1,4 +1,4 @@
-function runConfig() {
+export default function runConfig() {
   console.log('#Enabled: Configuring console.log...');
 
   const cl = console.log;
@@ -6,6 +6,10 @@ function runConfig() {
   console.log = function (...args: Parameters<typeof console.log>) {
     cl('Log:', ...args, new Date().toLocaleTimeString());
   };
-}
 
-export default runConfig;
+  console.clear = function () {
+    cl('Console cleared at', new Date().toLocaleTimeString());
+  };
+
+  cl(console);
+}

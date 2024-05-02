@@ -22,7 +22,7 @@ export default function Counter() {
 
   return (
     <>
-      <div className='flex gap-8'>
+      <div className='bg-gray-200 p-2 flex gap-8'>
         <div>Counter</div>
         <h2>{count}</h2>
         <button onClick={handleIncrement}>Increment</button>
