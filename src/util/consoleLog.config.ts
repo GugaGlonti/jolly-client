@@ -5,9 +5,10 @@ export default function runConfig() {
   const clw = console.warn;
   const cle = console.error;
   const clc = console.clear;
+  const timestamp = () => new Date().toLocaleTimeString();
 
   console.log = function (...args: Parameters<typeof console.log>) {
-    cl('Logger:', ...args, new Date().toLocaleTimeString());
+    cl(' ', timestamp(), 'Logger: ', ...args);
   };
 
   console.clear = function () {
@@ -16,12 +17,14 @@ export default function runConfig() {
   };
 
   console.warn = function (...args: Parameters<typeof console.warn>) {
-    clw('Warning:', ...args, new Date().toLocaleTimeString());
+    clw(timestamp(), 'Warning:', ...args);
   };
 
   console.error = function (...args: Parameters<typeof console.error>) {
-    cle('Error:', ...args, new Date().toLocaleTimeString());
+    cle(timestamp(), 'Error:  ', ...args);
   };
 
-  cl(console);
+  console.log('#Configured: console.log...');
+  console.warn('#Configured: console.warn...');
+  console.error('#Configured: console.error...');
 }
