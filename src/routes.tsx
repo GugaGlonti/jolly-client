@@ -1,16 +1,23 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+/** @util */
 import Route from './util/Route';
+
+/** @layouts */
 import RootLayout from './layouts/RootLayout';
-import Counter from './components/Counter';
-import Console from './components/Console';
+
+/** @pages */
+import SettingsPage from './pages/Settings.page';
+import ProfilePage from './pages/Profile.page';
+import DashboardPage from './pages/Dashboard.page';
 
 /** TODO: custom text/json route parser */
 const routes = [
   Route(['root', ''], <RootLayout />, {
     0: Route(['root-root', ''], <div>Landing</div>),
-    1: Route('dashboard', <div>Dashboard</div>, {}),
-    2: Route('test', <Counter />),
-    3: Route('console', <Console />),
+    1: Route('dashboard', <DashboardPage />, {}),
+    3: Route('profile', <ProfilePage />),
+    4: Route('settings', <SettingsPage />),
   }),
   Route('auth', <div>Auth</div>),
   Route(['not-defined', '*'], <div>404</div>),
