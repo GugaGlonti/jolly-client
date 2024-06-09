@@ -1,7 +1,8 @@
-import { ReactNode, useRef, useState } from 'react';
+import { ReactNode } from 'react';
 
 import { DropDownHead } from './components/DropDownHead';
 import { DropDownBody } from './components/DropDownBody';
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 interface DropDownProps {
   head: ReactNode[];
@@ -9,31 +10,20 @@ interface DropDownProps {
 }
 
 export default function Dropdown({ head, body }: DropDownProps) {
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleOpen() {
-    setIsOpen(prev => !prev);
-  }
+  const { isOpen, toggle, ref } = useOutsideClick();
 
   return (
     <>
       <div
         className='relative'
-        ref={dropdownRef}>
-        <DropDownHead onClick={handleOpen}>
-          {head.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </DropDownHead>
+        ref={ref}>
+        <DropDownHead
+          onClick={toggle}
+          head={head}
+        />
         <DropDownBody
-          dropdownRef={dropdownRef}
           isOpen={isOpen}
-          onClose={handleOpen}>
-          {body.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
-        </DropDownBody>
+          body={body}></DropDownBody>
       </div>
     </>
   );
