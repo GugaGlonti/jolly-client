@@ -7,27 +7,28 @@ export default function Console() {
   const { content, dispatch } = useRedux(consoleSlice);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function clearHanlder() {
-    dispatch(clear());
+  function commandHandler(command: string) {
+    try {
+      eval(command);
+    } catch (error) {
+    } finally {
+      switch (command) {
+        case 'theme':
+          return toggleTheme(useThemeMode());
+        case 'border':
+          return redBorder();
+        default:
+          inputRef.current!.value = '';
+          return dispatch(log(command));
+      }
+    }
   }
 
   function logHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const value = inputRef.current?.value;
-    if (value) {
-      try {
-        if (value === 'theme') {
-          const themeMode = useThemeMode();
-          themeMode.setMode(themeMode.mode === 'dark' ? 'light' : 'dark');
-          return;
-        }
-
-        dispatch(log(value));
-
-        eval(value);
-      } catch (error) {}
-      inputRef.current!.value = '';
-    }
+    if (value) commandHandler(value);
+    inputRef.current!.value = '';
   }
 
   return (
@@ -49,7 +50,7 @@ export default function Console() {
             <button>Send</button>
             <button
               type='button'
-              onClick={clearHanlder}>
+              onClick={() => dispatch(clear())}>
               Clear
             </button>
           </div>
@@ -57,4 +58,23 @@ export default function Console() {
       </div>
     </>
   );
+}
+
+function toggleTheme(themeMode: any) {
+  if (themeMode.mode === 'dark') {
+    return themeMode.setMode('light');
+  } else {
+    return themeMode.setMode('dark');
+  }
+}
+
+function redBorder() {
+  const allElements = document.querySelectorAll('*');
+  const styles = {
+    outline: 'inset red 2px',
+  };
+
+  allElements.forEach(element => {
+    Object.assign((element as HTMLElement).style, styles);
+  });
 }
