@@ -1,58 +1,36 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Group } from './components/Group';
 
-const { Divider, Header, Item } = Dropdown;
-const { Link, Collapse, Brand, Toggle } = Navbar;
+import { Nav } from './components/Nav';
+import Dropdown from '../dropdown/Dropdown';
+import { ProfilePicture } from './components/ProfilePicture';
+import { DropDownDivider } from '../dropdown/components/DropDownDivider';
+import { DropDownButton } from '../dropdown/components/DropDownButton';
 
 export default function RootNavigation() {
-  const navigate = useNavigate();
-
   return (
-    <Navbar
-      fluid
-      rounded>
-      <Brand href='https://flowbite-react.com'>
-        <img
-          src='/favicon.svg'
-          className='mr-3 h-6 sm:h-9'
-          alt='Flowbite React Logo'
-        />
-        <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>Flowbite React</span>
-      </Brand>
-      <div className='flex md:order-2'>
-        <Dropdown
-          arrowIcon={false}
-          inline
-          label={
-            <Avatar
-              alt='User settings'
-              img='https://flowbite.com/docs/images/people/profile-picture-5.jpg'
-              rounded
+    <>
+      <header className='shadow p-2 h-20'>
+        <Nav>
+          <Group>
+            <img
+              src='https://placeholderlogo.com/img/placeholder-logo-1.png'
+              className='h-16'
             />
-          }>
-          <Header>
-            <span className='block text-sm'>Bonnie Green</span>
-            <span className='block truncate text-sm font-medium'>name@flowbite.com</span>
-          </Header>
-          <Item onClick={() => navigate('dashboard')}>Dashboard</Item>
-          <Item onClick={() => navigate('profile')}>Profile</Item>
-          <Item onClick={() => navigate('settings')}>Settings</Item>
-          <Divider />
-          <Item>Sign out</Item>
-        </Dropdown>
-        <Toggle />
-      </div>
-      <Collapse>
-        <Link
-          href='#'
-          active>
-          Home
-        </Link>
-        <Link href='#'>About</Link>
-        <Link href='#'>Services</Link>
-        <Link href='#'>Pricing</Link>
-        <Link href='#'>Contact</Link>
-      </Collapse>
-    </Navbar>
+            <h1 className='font-bold'>Jolly</h1>
+          </Group>
+          <Group center>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/'>About</NavLink>
+            <NavLink to='/dashboard'>Dashboard</NavLink>
+          </Group>
+          <Group>
+            <Dropdown
+              head={[<span className='text-sm font-medium'>Guga Glonti</span>, <ProfilePicture />]}
+              body={[<DropDownButton label='Profile' />, <DropDownButton label='Settings' />, <DropDownDivider />, <DropDownButton label='Log out' />]}></Dropdown>
+          </Group>
+        </Nav>
+      </header>
+    </>
   );
 }
