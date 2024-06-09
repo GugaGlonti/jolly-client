@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import useRedux from '../hooks/useRedux';
 import { clear, consoleSlice, log } from '../store/console/consoleSlice';
+import { useThemeMode } from 'flowbite-react';
 
 export default function Console() {
   const { content, dispatch } = useRedux(consoleSlice);
@@ -14,14 +15,24 @@ export default function Console() {
     e.preventDefault();
     const value = inputRef.current?.value;
     if (value) {
-      dispatch(log(value));
+      try {
+        if (value === 'theme') {
+          const themeMode = useThemeMode();
+          themeMode.setMode(themeMode.mode === 'dark' ? 'light' : 'dark');
+          return;
+        }
+
+        dispatch(log(value));
+
+        eval(value);
+      } catch (error) {}
       inputRef.current!.value = '';
     }
   }
 
   return (
     <>
-      <div className='bg-gray-200 p-2 gap-8 flex flex-col'>
+      <div className='bg-gray-200 p-8 gap-8 flex flex-col border-black m-2 border-2 rounded-md'>
         <div>
           {content.map((line, i) => (
             <div key={i}>{line}</div>
