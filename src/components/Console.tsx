@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import useRedux from '../hooks/useRedux';
 import { clear, consoleSlice, log } from '../store/console/consoleSlice';
 import { useThemeMode } from 'flowbite-react';
+import Spread from '../util/Spread';
 
 export default function Console() {
   const { content, dispatch } = useRedux(consoleSlice);
@@ -35,9 +36,7 @@ export default function Console() {
     <>
       <div className='bg-gray-200 p-8 gap-8 flex flex-col border-black m-2 border-2 rounded-md'>
         <div>
-          {content.map((line, i) => (
-            <div key={i}>{line}</div>
-          ))}
+          <Spread items={content} />
         </div>
         <form onSubmit={logHandler}>
           <input

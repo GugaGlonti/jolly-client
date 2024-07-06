@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Spread from '../../../util/Spread';
 
 interface DropDownHeadProps {
   onClick: () => void;
@@ -11,9 +12,7 @@ export default function DropDownHead({ onClick, head }: DropDownHeadProps) {
         onClick={onClick}
         className='bg-gray-200 dark:bg-gray-700 p-4 rounded'>
         <div className='flex items-center space-x-2'>
-          {head.map((item, i) => (
-            <div key={i}>{item}</div>
-          ))}
+          <Spread items={head} />
         </div>
       </div>
     </>

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Spread from '../../../util/Spread';
 
 interface DropDownBodyProps {
   isOpen: boolean;
@@ -14,9 +15,7 @@ export default function DropDownBody({ isOpen, body }: DropDownBodyProps) {
       <div
         className='absolute top-14 right-0 w-48 mt-2 py-2 rounded-md shadow-xl
         bg-white dark:bg-gray-700'>
-        {body.map((item, i) => (
-          <div key={i}>{item}</div>
-        ))}
+        <Spread items={body} />
       </div>
     </>
   );
