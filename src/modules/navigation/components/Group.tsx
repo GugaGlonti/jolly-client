@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 interface GroupProps {
   center?: boolean;
 }
-export function Group({ center = false, children }: PropsWithChildren<GroupProps>) {
+export default function Group({ center = false, children }: PropsWithChildren<GroupProps>) {
   const centerClasses =
     center &&
     ` absolute left-1/2 transform -translate-x-1/2 text-center justify-center items-center

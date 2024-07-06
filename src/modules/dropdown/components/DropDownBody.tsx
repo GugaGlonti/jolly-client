@@ -4,7 +4,7 @@ interface DropDownBodyProps {
   isOpen: boolean;
   body: ReactNode[];
 }
-export function DropDownBody({ isOpen, body }: DropDownBodyProps) {
+export default function DropDownBody({ isOpen, body }: DropDownBodyProps) {
   if (!isOpen) {
     return null;
   }

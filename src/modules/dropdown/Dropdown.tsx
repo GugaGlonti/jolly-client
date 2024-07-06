@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { DropDownHead } from './components/DropDownHead';
-import { DropDownBody } from './components/DropDownBody';
+import DropDownHead from './components/DropDownHead';
+import DropDownBody from './components/DropDownBody';
 import useOutsideClick from '../../hooks/useOutsideClick';
 
 interface DropDownProps {

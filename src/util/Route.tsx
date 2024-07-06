@@ -1,5 +1,5 @@
 import { RouteObject } from 'react-router';
-import { ErrorBoundary } from '../components/ErrorBoundary';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 type ChildrenObject = { [key: string]: RouteObject };
 type Path = string | [string, string];

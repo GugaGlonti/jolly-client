@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 interface DropDownButtonProps {
   label: string;
 }
-export function DropDownButton({ label }: DropDownButtonProps) {
+export default function DropDownButton({ label }: DropDownButtonProps) {
   const link = '/' + label.toLowerCase().split(' ').join('');
 
   return (

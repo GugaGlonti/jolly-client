@@ -4,7 +4,7 @@ interface DropDownHeadProps {
   onClick: () => void;
   head: ReactNode[];
 }
-export function DropDownHead({ onClick, head }: DropDownHeadProps) {
+export default function DropDownHead({ onClick, head }: DropDownHeadProps) {
   return (
     <>
       <div

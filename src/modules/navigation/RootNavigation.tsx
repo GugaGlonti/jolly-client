@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { Group } from './components/Group';
+import Group from './components/Group';
 
-import { Nav } from './components/Nav';
+import Nav from './components/Nav';
 import Dropdown from '../dropdown/Dropdown';
-import { ProfilePicture } from './components/ProfilePicture';
-import { DropDownDivider } from '../dropdown/components/DropDownDivider';
-import { DropDownButton } from '../dropdown/components/DropDownButton';
+import ProfilePicture from './components/ProfilePicture';
+import DropDownDivider from '../dropdown/components/DropDownDivider';
+import DropDownButton from '../dropdown/components/DropDownButton';
 
 export default function RootNavigation() {
   return (
