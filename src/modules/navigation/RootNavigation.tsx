@@ -11,7 +11,7 @@ import Logo from '../../components/Logo';
 export default function RootNavigation() {
   return (
     <>
-      <header className='shadow p-2 h-20'>
+      <header className='shadow p-2 h-20 bg-gray-50 dark:bg-gray-900'>
         <Nav>
           <Group>
             <Logo className='h-16' />

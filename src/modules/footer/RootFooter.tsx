@@ -1,6 +1,8 @@
 import Logo from '../../components/Logo';
 
 export default function RootFooter() {
+  const year = new Date().getFullYear();
+
   return (
     <>
       <footer className='py-6 h-fit bg-gray-50 dark:bg-gray-900'>
@@ -17,7 +19,7 @@ export default function RootFooter() {
           <hr className='dark: border-gray-800' />
           <div className='w-full flex justify-center my-8'>
             <span>
-              {new Date().getFullYear()} Jolly. All Rights <i>not yet</i> Reserved.
+              {year} Jolly. All Rights <i>not yet</i> Reserved.
             </span>
           </div>
         </div>
