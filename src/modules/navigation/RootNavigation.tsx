@@ -24,8 +24,21 @@ export default function RootNavigation() {
           </Group>
           <Group>
             <Dropdown
-              head={[<span className='text-sm font-medium'>Guga Glonti</span>, <ProfilePicture />]}
-              body={[<DropDownButton label='Profile' />, <DropDownButton label='Settings' />, <DropDownDivider />, <DropDownButton label='Log out' />]}></Dropdown>
+              head={
+                <div className='flex items-center space-x-2 bg-gray-200 dark:bg-gray-700 p-4 rounded'>
+                  <span className='text-sm font-medium'>Guga Glonti</span>
+                  <ProfilePicture />
+                </div>
+              }
+              body={
+                <div className='absolute top-14 right-0 w-48 mt-2 py-2 rounded-md shadow-xl bg-white dark:bg-gray-700'>
+                  <DropDownButton label='Profile' />
+                  <DropDownButton label='Settings' />
+                  <DropDownDivider />
+                  <DropDownButton label='Log out' />
+                </div>
+              }
+            />
           </Group>
         </Nav>
       </header>
