@@ -6,6 +6,7 @@ import Dropdown from '../dropdown/Dropdown';
 import ProfilePicture from './components/ProfilePicture';
 import DropDownDivider from '../dropdown/components/DropDownDivider';
 import DropDownButton from '../dropdown/components/DropDownButton';
+import Logo from '../../components/Logo';
 
 export default function RootNavigation() {
   return (
@@ -13,10 +14,7 @@ export default function RootNavigation() {
       <header className='shadow p-2 h-20'>
         <Nav>
           <Group>
-            <img
-              src='https://placeholderlogo.com/img/placeholder-logo-1.png'
-              className='h-16'
-            />
+            <Logo className='h-16' />
             <h1 className='font-bold'>Jolly</h1>
           </Group>
           <Group center>
