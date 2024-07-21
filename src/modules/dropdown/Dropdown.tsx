@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import useOutsideClick from '../../hooks/useOutsideClick';
+import assert from '../../util/assert';
 
 interface DropDownProps {
   head: ReactNode;
@@ -8,11 +9,8 @@ interface DropDownProps {
 }
 
 export default function Dropdown({ head, body }: DropDownProps) {
+  assert(head, body, false, 'Head and body are required');
   const { isOpen, toggle, ref } = useOutsideClick();
-
-  if (!head || !body) {
-    throw new Error('Dropdown component requires head and body props');
-  }
 
   return (
     <>
