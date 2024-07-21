@@ -15,8 +15,6 @@ import googleOAuth2Client from '../googleOAuth2Client.json';
 
 /** @Configuration */
 import ClassesConfig from './util/Classes.config.tsx';
-import customConfig from './util/custom.config.ts';
-customConfig();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <>
