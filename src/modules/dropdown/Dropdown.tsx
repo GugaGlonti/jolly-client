@@ -9,7 +9,7 @@ interface DropDownProps {
 }
 
 export default function Dropdown({ head, body }: DropDownProps) {
-  assert(head, body, false, 'Head and body are required');
+  assert(head, body, 'Head and body are required');
   const { isOpen, toggle, ref } = useOutsideClick();
 
   return (
