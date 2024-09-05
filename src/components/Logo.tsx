@@ -1,12 +1,19 @@
+import { useNavigate } from 'react-router';
+
 interface LogoProps {
+  height?: string;
   className?: string;
 }
 
-export default function Logo({ className = '' }: LogoProps) {
+export default function Logo({ height = '', className = '' }: LogoProps) {
+  const navigate = useNavigate();
+
   return (
     <img
+      onClick={() => navigate('/')}
       src='https://placeholderlogo.com/img/placeholder-logo-1.png'
-      className={className}
+      height={height}
+      className={`cursor-pointer ${className}`}
     />
   );
 }

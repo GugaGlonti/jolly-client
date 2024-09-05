@@ -1,6 +1,7 @@
 import Button from '../components/Button';
 
 import backgroundImage from '../assets/images/milad-fakurian-nY14Fs8pxT8-unsplash.jpg';
+import Logo from '../components/Logo';
 
 export default function Landing() {
   return (
@@ -12,6 +13,7 @@ export default function Landing() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}>
+        <Logo className='h-32' />
         <h1 className='text-4xl font-bold'>Welcome to JOLLY</h1>
         <p className='text-lg font-semibold'>The best place to be</p>
 
