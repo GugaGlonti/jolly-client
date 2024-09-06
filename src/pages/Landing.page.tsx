@@ -2,8 +2,11 @@ import Button from '../components/Button';
 
 import backgroundImage from '../assets/images/milad-fakurian-nY14Fs8pxT8-unsplash.jpg';
 import Logo from '../components/Logo';
+import { useNavigate } from 'react-router';
 
 export default function Landing() {
+  const naviage = useNavigate();
+
   return (
     <>
       <div
@@ -20,11 +23,11 @@ export default function Landing() {
         <div className='flex gap-4 mt-4'>
           <Button
             text='Sign Up'
-            onClick={() => console.log('Sign Up')}
+            onClick={() => naviage('/auth?registering=true')}
           />
           <Button
             text='Log In'
-            onClick={() => console.log('Log In')}
+            onClick={() => naviage('/auth?registering=false')}
           />
         </div>
       </div>

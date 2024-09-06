@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Group from './components/Group';
 
 import Nav from './components/Nav';
@@ -9,8 +9,11 @@ import DropDownButton from '../dropdown/components/DropDownButton';
 import Logo from '../../components/Logo';
 import useRedux from '../../hooks/useRedux';
 import { authSlice } from '../../store/auth/authSlice';
+import Button from '../../components/Button';
 
 export default function RootNavigation() {
+  const naviage = useNavigate();
+
   const { isAuthenticated } = useRedux(authSlice);
 
   console.log('isAuthenticated', isAuthenticated);
@@ -29,7 +32,18 @@ export default function RootNavigation() {
             <NavLink to='/dashboard'>Dashboard</NavLink>
           </Group>
           <Group>
-            {!isAuthenticated && <h1>Login</h1>}
+            {!isAuthenticated && (
+              <div className='flex gap-4 mr-4'>
+                <Button
+                  text='Sign Up'
+                  onClick={() => naviage('/auth?registering=true')}
+                />
+                <Button
+                  text='Log In'
+                  onClick={() => naviage('/auth?registering=false')}
+                />
+              </div>
+            )}
 
             <Dropdown
               head={
