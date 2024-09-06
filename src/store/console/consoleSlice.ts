@@ -22,4 +22,4 @@ export const consoleSlice = createSlice({
 });
 
 export const { log, clear } = consoleSlice.actions;
-export default consoleSlice.reducer;
+export const consoleReducer = consoleSlice.reducer;
