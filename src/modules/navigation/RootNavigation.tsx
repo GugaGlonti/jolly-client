@@ -7,8 +7,14 @@ import ProfilePicture from './components/ProfilePicture';
 import DropDownDivider from '../dropdown/components/DropDownDivider';
 import DropDownButton from '../dropdown/components/DropDownButton';
 import Logo from '../../components/Logo';
+import useRedux from '../../hooks/useRedux';
+import { authSlice } from '../../store/auth/authSlice';
 
 export default function RootNavigation() {
+  const { isAuthenticated } = useRedux(authSlice);
+
+  console.log('isAuthenticated', isAuthenticated);
+
   return (
     <>
       <header className='shadow p-2 h-20 bg-gray-50 dark:bg-gray-900'>
@@ -23,6 +29,8 @@ export default function RootNavigation() {
             <NavLink to='/dashboard'>Dashboard</NavLink>
           </Group>
           <Group>
+            {!isAuthenticated && <h1>Login</h1>}
+
             <Dropdown
               head={
                 <div className='flex items-center space-x-2 bg-gray-200 dark:bg-gray-700 p-4 rounded'>
