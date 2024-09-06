@@ -13,19 +13,14 @@ import { store } from './store/store';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import googleOAuth2Client from '../googleOAuth2Client.json';
 
-/** @Configuration */
-import ClassesConfig from './util/Classes.config.tsx';
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <>
-    <ClassesConfig>
-      <React.StrictMode>
-        <ReduxProvider store={store}>
-          <GoogleOAuthProvider clientId={googleOAuth2Client.web.client_id}>
-            <Routes />
-          </GoogleOAuthProvider>
-        </ReduxProvider>
-      </React.StrictMode>
-    </ClassesConfig>
+    <React.StrictMode>
+      <ReduxProvider store={store}>
+        <GoogleOAuthProvider clientId={googleOAuth2Client.web.client_id}>
+          <Routes />
+        </GoogleOAuthProvider>
+      </ReduxProvider>
+    </React.StrictMode>
   </>
 );
