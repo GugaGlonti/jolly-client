@@ -10,10 +10,17 @@ export default function AuthPage() {
 
   return (
     <>
-      <h1>AUTH</h1>
-
-      {!!registering && <SignUpForm />}
-      {!registering && <SignInForm />}
+      <div className='w-[100vw] h-[100vh] flex justify-center items-center'>
+        <main className='flex bg-gradient-to-tr from-blue-700 to-blue-300 rounded-3xl'>
+          <aside className='p-8'>
+            <h1>Jolly 2024</h1>
+            <div className='h-full flex flex-col justify-center items-center'>
+              <h1>Welcome To Jolly</h1>
+            </div>
+          </aside>
+          {!!registering ? <SignUpForm /> : <SignInForm />}
+        </main>
+      </div>
     </>
   );
 }
